@@ -24,8 +24,8 @@ netsh advfirewall firewall add rule name=ftpout action=allow protocol=tcp remote
 netsh advfirewall firewall add rule name=ftp action=allow protocol=tcp remoteport=20,21,10000-10010 dir=in
 netsh advfirewall set global StatefulFTP disable
 
-netsh advfirewall firewall add rule name=localDomain action=allow remoteip=10.2.x.0/24 dir=in
-netsh advfirewall firewall add rule name=localDomain action=allow remoteip=10.2.x.0/24 dir=out
+netsh advfirewall firewall add rule name=localDomain action=allow remoteip=10.2.5.0/24 dir=in
+netsh advfirewall firewall add rule name=localDomain action=allow remoteip=10.2.5.0/24 dir=out
 
 ::Flicker dat NIC
 netsh interface set interface name="Local Area Connection" admin=disabled

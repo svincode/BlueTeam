@@ -23,22 +23,22 @@ netsh advfirewall firewall add rule name=lo action=allow remoteip=127.0.0.0/8 di
 
 netsh advfirewall firewall add rule name=dnsfwd action=allow protocol=udp remoteport=53 remoteip=8.8.8.8 dir=out
 netsh advfirewall firewall add rule name=dnssrv action=allow protocol=udp localport=53 dir=in
-netsh advfirewall firewall add rule name=ztdns action=allow protocol=tcp localport=53 remoteip=10.2.x.60 dir=out
-netsh advfirewall firewall add rule name=ztdns action=allow protocol=tcp remoteport=53 remoteip=10.2.x.60 dir=in 
-netsh advfirewall firewall add rule name=ztdns action=allow protocol=udp remoteport=53 remoteip=10.2.x.60 dir=in
+netsh advfirewall firewall add rule name=ztdns action=allow protocol=tcp localport=53 remoteip=10.2.5.60 dir=out
+netsh advfirewall firewall add rule name=ztdns action=allow protocol=tcp remoteport=53 remoteip=10.2.5.60 dir=in 
+netsh advfirewall firewall add rule name=ztdns action=allow protocol=udp remoteport=53 remoteip=10.2.5.60 dir=in
 
-netsh advfirewall firewall add rule name=RPC action=allow protocol=tcp localport=RPC remoteip=10.2.x.0/24 dir=in 
-netsh advfirewall firewall add rule name=RPCEPM action=allow protocol=tcp localport=RPC-EPMap remoteip=10.2.x.0/24 dir=in 
+netsh advfirewall firewall add rule name=RPC action=allow protocol=tcp localport=RPC remoteip=10.2.5.0/24 dir=in 
+netsh advfirewall firewall add rule name=RPCEPM action=allow protocol=tcp localport=RPC-EPMap remoteip=10.2.5.0/24 dir=in 
 
-netsh advfirewall firewall add rule name=AD1 action=allow protocol=tcp localport=445,389,88,135,636,3268 remoteip=10.2.x.0/24 dir=in 
-netsh advfirewall firewall add rule name=AD2 action=allow protocol=tcp localport=445 remoteip=10.2.x.0/24 dir=out 
-netsh advfirewall firewall add rule name=AD3 action=allow protocol=udp localport=389,88,445,636 remoteip=10.2.x.0/24 dir=in 
+netsh advfirewall firewall add rule name=AD1 action=allow protocol=tcp localport=445,389,88,135,636,3268 remoteip=10.2.5.0/24 dir=in 
+netsh advfirewall firewall add rule name=AD2 action=allow protocol=tcp localport=445 remoteip=10.2.5.0/24 dir=out 
+netsh advfirewall firewall add rule name=AD3 action=allow protocol=udp localport=389,88,445,636 remoteip=10.2.5.0/24 dir=in 
 
 netsh advfirewall firewall add rule name=ftpout action=allow protocol=tcp remoteip=63.245.215.56,63.245.56.46 dir=out
 netsh advfirewall firewall add rule name=ftpout action=allow protocol=tcp remoteip=63.245.215.56,63.245.56.46 dir=in
 
-netsh advfirewall firewall add rule name=localDomain action=allow remoteip=10.2.x.0/24 dir=in
-netsh advfirewall firewall add rule name=localDomain action=allow remoteip=10.2.x.0/24 dir=out
+netsh advfirewall firewall add rule name=localDomain action=allow remoteip=10.2.5.0/24 dir=in
+netsh advfirewall firewall add rule name=localDomain action=allow remoteip=10.2.5.0/24 dir=out
 
 ::Flicker dat NIC
 netsh interface set interface name="Local Area Connection" admin=disabled
