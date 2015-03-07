@@ -1,5 +1,5 @@
 @echo off
-::netsh advfirewall rules
+
 ::Flicker dat NIC
 netsh interface set interface name="Local Area Connection" admin=disabled
 netsh interface set interface name="Local Area Connection" admin=enabled
@@ -7,6 +7,9 @@ netsh interface set interface name="Local Area Connection" admin=enabled
 ::Change Passwords! Disable Guest!
 net user Administrator *
 net user guest /active:no
+
+::Change paswords of all other domain users
+dsquery user cn=Users,dc=team,dc=local | dsmod user -pwd TheHawkingProject!@# -mustchpwd yes -disabled yes
 
 ::Firewall Time
 netsh advfirewall reset
@@ -34,9 +37,17 @@ netsh advfirewall firewall add rule name=AD3 action=allow protocol=udp localport
 netsh advfirewall firewall add rule name=ftpout action=allow protocol=tcp remoteip=63.245.215.56,63.245.56.46 dir=out
 netsh advfirewall firewall add rule name=ftpout action=allow protocol=tcp remoteip=63.245.215.56,63.245.56.46 dir=in
 
+netsh advfirewall firewall add rule name=localDomain action=allow remoteip=10.2.x.0/24 dir=in
+netsh advfirewall firewall add rule name=localDomain action=allow remoteip=10.2.x.0/24 dir=out
+
 ::Flicker dat NIC
 netsh interface set interface name="Local Area Connection" admin=disabled
 netsh interface set interface name="Local Area Connection" admin=enabled
 
 ::Once you get firefox, uncomment this part
 ::netsh advfirewall firewall add rule name=web action=allow program=whereisfirefox protocol=tcp remoteport=443,80 dir=out ::if proxy, remoteip=<proxyip>
+::GO to https://technet.microsoft.com/en-us/sysinternals/bb842062
+
+
+
+
