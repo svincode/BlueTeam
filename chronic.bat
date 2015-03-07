@@ -9,7 +9,7 @@ net user Administrator *
 net user guest /active:no
 
 ::Change paswords of all other domain users
-dsquery user cn=Users,dc=team,dc=local | dsmod user -pwd TheHawkingProject!@# -mustchpwd yes -disabled yes
+dsquery user cn=Users,dc=ad,dc=team5,dc=ists | dsmod user -pwd TheHawkingProject!@# -mustchpwd yes -disabled yes
 
 ::Firewall Time
 netsh advfirewall reset
