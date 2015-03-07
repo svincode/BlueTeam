@@ -1,5 +1,5 @@
 @echo off
-
+::netsh advfirewall rules
 ::Flicker dat NIC
 netsh interface set interface name="Local Area Connection" admin=disabled
 netsh interface set interface name="Local Area Connection" admin=enabled
